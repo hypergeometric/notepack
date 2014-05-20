@@ -22,12 +22,22 @@ function map(length) {
   return result;
 }
 
+var tiny = {
+  foo: 1,
+  bar: 'abc'
+};
+
 var small = {
   foo: 1,
   bar: [1, 2, 3, 4, 'abc', 'def'],
   foobar: {
     foo: true,
-    bar: -2147483649
+    bar: -2147483649,
+    foobar: {
+      foo: new Buffer([1, 2, 3, 4, 5]),
+      bar: 1.5,
+      foobar: [true, false, 'abcdefghijkmonpqrstuvwxyz']
+    }
   }
 };
 
@@ -62,6 +72,7 @@ for (var i = 0; i < 1024; i++) {
   large.map['b'.repeat(i)] = new Buffer('b'.repeat(i));
 }
 
+exports.tiny = tiny;
 exports.small = small;
 exports.medium = medium;
 exports.large = large;

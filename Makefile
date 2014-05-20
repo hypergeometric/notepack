@@ -20,5 +20,6 @@ cover:
 bench:
 	@NODE_ENV=bench node perf/encode.js
 	@NODE_ENV=bench node perf/decode.js
+	@echo '* Note that JSON is provided as an indicative comparison only as it doesn't correctly encode all values'
 
 .PHONY: test cover bench
