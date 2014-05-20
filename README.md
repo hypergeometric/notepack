@@ -1,14 +1,14 @@
 # @coinative/msgpack
 
-A fast pure-JavaScript implementation of the latest [MessagePack](http://msgpack.org) [spec](https://github.com/msgpack/msgpack/blob/master/spec.md) for [NodeJS](http://nodejs.org).
+A fast [Node.js](http://nodejs.org) implementation of the latest [MessagePack](http://msgpack.org) [spec](https://github.com/msgpack/msgpack/blob/master/spec.md).
 
 ## Notes
 
-* This implementation is not backwards compatible with implementations that use the older spec. It is recommended that this library is only used in isolated systems.
-* `undefined` is encoded as `fixext 1 [0, 0]`, i.e. `0xd40000`
-* `Date` objects are encoded as `fixext 8 [0, ms]`, e.g. `new Date(2000, 6, 13)` => `0xd700000000e051aa7580`
+* This implementation is not backwards compatible with those that use the older spec. It is recommended that this library is only used in isolated systems.
+* `undefined` is encoded as `fixext 1 [0, 0]`, i.e. `<Buffer d4 00 00>`
+* `Date` objects are encoded as `fixext 8 [0, ms]`, e.g. `new Date('2000-06-13T00:00:00.000Z')` => `<Buffer d7 00 00 00 00 df b7 62 9c 00>`
 
-## Installation
+## Install
 
 Not currently hosted on npmjs.org. Take this module as a git dependency via:
 
@@ -27,7 +27,7 @@ var decoded = msgpack.decode(encoded); // { foo: 'bar' }
 
 ## Performance
 
-Performance is currently comparable to msgpack-node (which presumably needs optimizing and suffers from JS-native overhead) and is significantly faster than other pure-JavaScript implementations. Several micro-optimizations are used to improve the performance of short string and Buffer operations.
+Performance is currently comparable to msgpack-node (which presumably needs optimizing and suffers from JS-native overhead) and is significantly faster than other implementations. Several micro-optimizations are used to improve the performance of short string and Buffer operations.
 
 The `make bench` output on my machine is:
 
@@ -56,7 +56,7 @@ Decoding (this will take a while):
 +--------------------------+-------------------+-----------------+----------------+---------------+
 | JSON.parse (from Buffer) │ 1,390,069 ops/sec │ 389,440 ops/sec │ 27,830 ops/sec │ 51.10 ops/sec |
 +--------------------------+-------------------+-----------------+----------------+---------------+
-* Note that JSON is provided as an indicative comparison only as it doesn't correctly encode all values
+* Note that JSON is provided as an indicative comparison only
 ```
 
 ## License
