@@ -6,6 +6,7 @@ A fast pure-JavaScript implementation of the latest [MessagePack](http://msgpack
 
 * This implementation is not backwards compatible with implementations that use the older spec. It is recommended that this library is only used in isolated systems.
 * `undefined` is encoded as `fixext 1 [0, 0]`, i.e. `0xd40000`
+* `Date` objects are encoded as `fixext 8 [0, ms]`, e.g. `new Date(2000, 6, 13)` => `0xd700000000e051aa7580`
 
 ## Installation
 

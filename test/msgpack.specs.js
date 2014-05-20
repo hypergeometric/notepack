@@ -173,8 +173,14 @@ describe('msgpack', function () {
     check(undefined, 'd40000');
   });
 
-  // fixext 2, fixext 4, fixext 8, fixext 16
-  // There is currently no way to encode extension types
+  it('fixext 8 / Date', function () {
+    check(new Date(0), 'd7000000000000000000');
+    check(new Date('1956-06-17T00:00:00.000Z'), 'd700ffffff9c80e28800');
+    check(new Date('1970-01-01T00:00:00.000Z'), 'd7000000000000000000');
+    check(new Date('2000-06-13T00:00:00.000Z'), 'd700000000dfb7629c00');
+    check(new Date('2005-12-31T23:59:59.999Z'), 'd7000000010883436bff');
+    check(new Date('2140-01-01T13:14:15.678Z'), 'd700000004e111a31efe');
+  });
 
   it('str 8', function () {
     check('a'.repeat(32), 'd9' + '20' + '61'.repeat(32));
@@ -227,7 +233,7 @@ describe('msgpack', function () {
       map: {},
       nil: null,
       bool: { 'true': true, 'false': false, both: [true, false, false, false, true] },
-      'undefined': [undefined, true, false, null, undefined]
+      fixext: [undefined, new Date('2140-01-01T13:14:15.678Z'), undefined, new Date('2005-12-31T23:59:59.999Z')]
     };
     expected.map['a'.repeat(32)] = { a: 'a', b: 'b', c: 'c' };
     expected.map['b'.repeat(256)] = { a: { b: 1, c: 1, d: 1, e: { f: { g: 2, h: 2 } } } };
