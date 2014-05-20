@@ -1,12 +1,11 @@
 # @coinative/msgpack
 
-A fast pure-JavaScript implementation of the latest [msgpack](http://msgpack.org) [spec](https://github.com/msgpack/msgpack/blob/master/spec.md) for [NodeJS](http://nodejs.org).
+A fast pure-JavaScript implementation of the latest [MessagePack](http://msgpack.org) [spec](https://github.com/msgpack/msgpack/blob/master/spec.md) for [NodeJS](http://nodejs.org).
 
 ## Notes
 
-Do not expect this implementation to be backwards compatible with other msgpack implementations that use the older spec.
-
-`undefined` is encoded as `fixext 1 [0, 0]`, i.e. `0xd40000`
+* This implementation is not backwards compatible with implementations that use the older spec.
+* `undefined` is encoded as `fixext 1 [0, 0]`, i.e. `0xd40000`
 
 ## Installation
 
@@ -27,7 +26,7 @@ var decoded = msgpack.decode(encoded); // { foo: 'bar' }
 
 ## Performance
 
-Performance is currently comparable to msgpack-node (which presumably needs optimizing and suffers from JS-native overhead) and significantly faster than other pure-JavaScript implementations. Several micro-optimizations are used to improve the performance of short string and Buffer operations.
+Performance is currently comparable to msgpack-node (which presumably needs optimizing and suffers from JS-native overhead) and is significantly faster than other pure-JavaScript implementations. Several micro-optimizations are used to improve the performance of short string and Buffer operations.
 
 For the object:
 
