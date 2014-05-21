@@ -2,6 +2,8 @@
 
 A fast [Node.js](http://nodejs.org) implementation of the latest [MessagePack](http://msgpack.org) [spec](https://github.com/msgpack/msgpack/blob/master/spec.md).
 
+[![Build Status](https://travis-ci.org/coinative/msgpack.svg?branch=master)](https://travis-ci.org/coinative/msgpack)
+
 ## Notes
 
 * This implementation is not backwards compatible with those that use the older spec. It is recommended that this library is only used in isolated systems.
