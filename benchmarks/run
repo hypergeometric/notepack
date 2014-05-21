@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+echo 'Encoding (this will take a while):'
+node `dirname $0`/encode
+echo 'Decoding (this will take a while):'
+node `dirname $0`/decode
+echo '* Note that JSON is provided as an indicative comparison only'

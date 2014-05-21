@@ -31,7 +31,7 @@ var decoded = msgpack.decode(encoded); // { foo: 'bar' }
 
 Performance is currently comparable to msgpack-node (which presumably needs optimizing and suffers from JS-native overhead) and is significantly faster than other implementations. Several micro-optimizations are used to improve the performance of short string and Buffer operations.
 
-The `make bench` output on my machine is:
+The `./benchmarks/run` output on my machine is:
 
 ```
 Encoding (this will take a while):

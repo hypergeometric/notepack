@@ -5,8 +5,6 @@ var data = require('./data');
 
 var Benchtable = require('benchtable');
 
-console.log('Encoding (this will take a while):');
-
 var suite = new Benchtable;
 
 suite
