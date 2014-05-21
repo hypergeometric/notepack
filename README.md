@@ -1,8 +1,8 @@
 # @coinative/msgpack
 
-A fast [Node.js](http://nodejs.org) implementation of the latest [MessagePack](http://msgpack.org) [spec](https://github.com/msgpack/msgpack/blob/master/spec.md).
+[![Build Status](https://travis-ci.org/coinative/msgpack.svg?branch=master)](https://travis-ci.org/coinative/msgpack) [![Coverage Status](https://img.shields.io/coveralls/coinative/msgpack.svg)](https://coveralls.io/r/coinative/msgpack)
 
-[![Build Status](https://travis-ci.org/coinative/msgpack.svg?branch=master)](https://travis-ci.org/coinative/msgpack)
+A fast [Node.js](http://nodejs.org) implementation of the latest [MessagePack](http://msgpack.org) [spec](https://github.com/msgpack/msgpack/blob/master/spec.md).
 
 ## Notes
 
