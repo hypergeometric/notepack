@@ -1,4 +1,4 @@
-var msgpack = require('../');
+var notepack = require('../');
 
 function array(length) {
   var arr = new Array(length);
@@ -17,12 +17,12 @@ function map(length) {
 }
 
 function checkDecode(value, hex) {
-  var decodedValue = msgpack.decode(new Buffer(hex, 'hex'));
+  var decodedValue = notepack.decode(new Buffer(hex, 'hex'));
   expect(decodedValue).to.deep.equal(value, 'decode failed');
 }
 
 function checkEncode(value, hex) {
-  var encodedHex = msgpack.encode(value).toString('hex');
+  var encodedHex = notepack.encode(value).toString('hex');
   expect(encodedHex).to.equal(hex, 'encode failed');
 }
 
@@ -31,10 +31,10 @@ function check(value, hex) {
   checkDecode(value, hex);
 
   // And full circle for fun
-  expect(msgpack.decode(msgpack.encode(value))).to.deep.equal(value);
+  expect(notepack.decode(notepack.encode(value))).to.deep.equal(value);
 }
 
-describe('msgpack', function () {
+describe('notepack', function () {
   it('positive fixint', function () {
     check(0x00, '00');
     check(0x44, '44');
@@ -211,16 +211,16 @@ describe('msgpack', function () {
       'de' + '0010' + 'a13000a13101a13202a13303a13404a13505a13606a13707a13808a13909a1610aa1620ba1630ca1640da1650ea1660f'
     );
     var map16 = map(65535);
-    var encoded = msgpack.encode(map16);
+    var encoded = notepack.encode(map16);
     expect(encoded.toString('hex', 0, 3)).to.equal('deffff');
-    expect(msgpack.decode(encoded)).to.deep.equal(map16);
+    expect(notepack.decode(encoded)).to.deep.equal(map16);
   });
 
   it('map 32', function () {
     var map32 = map(65536);
-    var encoded = msgpack.encode(map32);
+    var encoded = notepack.encode(map32);
     expect(encoded.toString('hex', 0, 5)).to.equal('df00010000');
-    expect(msgpack.decode(encoded)).to.deep.equal(map32);
+    expect(notepack.decode(encoded)).to.deep.equal(map32);
   });
 
   it('all formats', function () {
@@ -241,12 +241,12 @@ describe('msgpack', function () {
     expected.map16 = map(65535);
     expected.map32 = map(65536);
 
-    expect(msgpack.decode(msgpack.encode(expected))).to.deep.equal(expected);
+    expect(notepack.decode(notepack.encode(expected))).to.deep.equal(expected);
   });
 
   it('10000', function () {
     var fixture = require('./fixtures/10000.json');
 
-    expect(msgpack.decode(msgpack.encode(fixture))).to.deep.equal(fixture);
+    expect(notepack.decode(notepack.encode(fixture))).to.deep.equal(fixture);
   });
 });

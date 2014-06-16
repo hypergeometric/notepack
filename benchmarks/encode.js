@@ -1,4 +1,4 @@
-var msgpack = require('../');
+var notepack = require('../');
 var msgpackJs = require('msgpack-js');
 var msgpackNode = require('msgpack');
 var data = require('./data');
@@ -8,8 +8,8 @@ var Benchtable = require('benchtable');
 var suite = new Benchtable;
 
 suite
-.addFunction('@coinative/msgpack', function (x) {
-  msgpack.encode(x);
+.addFunction('notepack', function (x) {
+  notepack.encode(x);
 })
 .addFunction('msgpack-js', function (x) {
   msgpackJs.encode(x);
