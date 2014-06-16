@@ -1,7 +1,7 @@
 {
   "name": "notepack",
   "version": "0.0.1",
-  "description": "",
+  "description": "A fast Node.js implementation of the latest MessagePack spec",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
