@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/coinative/notepack.git"
   },
-  "author": "",
+  "author": "Ben Shepheard <ben@coinative.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/coinative/notepack/issues"
