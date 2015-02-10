@@ -23,6 +23,7 @@ var notepack = require('notepack');
 
 var encoded = notepack.encode({ foo: 'bar'}); // <Buffer 81 a3 66 6f 6f a3 62 61 72>
 var decoded = notepack.decode(encoded); // { foo: 'bar' }
+var stream = notepack.createStream().on('data', ...); // decode continuous streams of buffers
 ```
 
 ## Performance
