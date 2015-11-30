@@ -1,6 +1,7 @@
 var notepack = require('../');
 var msgpackJs = require('msgpack-js');
 var msgpackNode = require('msgpack');
+var msgpackLite = require('msgpack-lite');
 var data = require('./data');
 
 var Benchtable = require('benchtable');
@@ -10,6 +11,9 @@ var suite = new Benchtable;
 suite
 .addFunction('notepack', function (x) {
   notepack.encode(x);
+})
+.addFunction('msgpack-lite', function (x) {
+  msgpackLite.encode(x);
 })
 .addFunction('msgpack-js', function (x) {
   msgpackJs.encode(x);
