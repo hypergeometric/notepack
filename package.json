@@ -15,7 +15,7 @@
   "homepage": "https://github.com/coinative/notepack",
   "devDependencies": {
     "benchmark": "^1.0.0",
-    "benchtable": "0.0.2",
+    "benchtable": "^0.0.5",
     "chai": "^1.9.1",
     "istanbul": "^0.2.10",
     "mocha": "^1.18.2",
