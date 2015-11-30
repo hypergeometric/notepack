@@ -15,12 +15,13 @@
   "homepage": "https://github.com/coinative/notepack",
   "devDependencies": {
     "benchmark": "^1.0.0",
-    "benchtable": "0.0.2",
+    "benchtable": "^0.0.5",
     "chai": "^1.9.1",
     "istanbul": "^0.2.10",
     "mocha": "^1.18.2",
     "msgpack": "^0.2.3",
-    "msgpack-js": "^0.3.0"
+    "msgpack-js": "^0.3.0",
+    "msgpack-lite": "^0.1.13"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha -r ./test/support/env -R dot ./test",
